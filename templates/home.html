@@ -1,0 +1,17 @@
+{% for message in get_flashed_messages() %}
+<p>{{ message }}</p>
+{% endfor %}
+
+<h1>Produs nou</h1>
+
+<form action="/save" method="post">
+	<input name="name">
+	<button type="submit">save</button>
+</form>
+
+
+{% for product in  product_list %}
+<p>{{ product.name }}
+<a href="/edit/{{ product.id }}">edit</a>
+</p>
+{% endfor %}
