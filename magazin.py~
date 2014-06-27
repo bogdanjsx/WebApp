@@ -24,6 +24,7 @@ def save():
 
 @app.route('/edit/<int:product_id>', methods=['POST', 'GET'])
 def edit(product_id):
+    import pdb; pdb.set_trace()
     product = Product.query.get(product_id)
     if not product:
         flask.abort(404)
