@@ -46,9 +46,32 @@ def api_list():
 def api_product(product_id):
     for product in Product.query.all():
         if product.id == product_id:
-            return flask.jsonify(
+            return flask.jsonify({
                 'id' : product.id, 'name' : product.name
-            )
-        
+            })
+
+@app.route("/api/product/create", methods=['POST'])
+def api_product_create():
+    print flask.request.get_json()
+    product = Product(name=flask.request.get_json()['name'])
+    db.session.add(product)
+    db.session.commit()
+    return flask.jsonify({'status':'ok', 'id': product.id})
+    
+@app.route("/api/product/<int:product_id>/update", methods=['POST'])
+def api_product_update(product_id):
+    product = Product.query.get(product_id)
+    product.name = flask.request.get_json()['name']
+    db.session.commit()
+    return flask.jsonify({'status' : 'ok'})
+    
+@app.route("/api/product/<int:product_id>/delete", methods=['POST'])
+def api_product_delete(product_id):
+    product = Product.query.get(product_id)
+    db.session.delete(product)
+    db.session.commit()
+    return flask.jsonify({'status' : 'ok'})
+
+
 db.create_all()
 app.run(debug=True)
