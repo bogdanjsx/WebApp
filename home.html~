@@ -1,0 +1,13 @@
+
+<h1 align="center">Lista Produse</h1>
+
+<form action="/save" method="post">
+	Add Product: </br></br>
+	Name:<input name="name">
+	Price: <input price="name" size="4">
+	<button type="submit">save</button>
+
+</form>
+
+
+
