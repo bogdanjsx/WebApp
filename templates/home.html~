@@ -24,7 +24,7 @@ Price: <input name="price" size="4">
 <p>
 {{ product.name }} {{ product.price }} {{ product.description }}
 <a href="/edit/{{ product.id }}">edit</a>
-<a href="/delete/{{ product.id }}">delete</a>
+<a href="/delete/{{ product.id }}">delete</a.
 </p>
 {% endfor %}
 

@@ -23,6 +23,13 @@ def save():
     flask.flash("Product added")
     return flask.redirect('/')
 
+@app.route('/delete/<int:product_id>', methods=['POST', 'GET'])
+def delete(product_id):
+    product = Product.query.get(product_id)
+    db.session.delete(product)
+    db.session.commit()
+    return flask.redirect('/')
+
 @app.route('/edit/<int:product_id>', methods=['POST', 'GET'])
 def edit(product_id):
     product = Product.query.get(product_id)
@@ -57,7 +64,7 @@ def api_product(product_id):
         if product.id == product_id:
             return flask.jsonify({
                 'id' : product.id, 'name' : product.name
-            })
+                })
 
 @app.route("/api/product/create", methods=['POST'])
 def api_product_create():
