@@ -1,10 +1,12 @@
 import flask
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask_bootstrap import Bootstrap
 
 app = flask.Flask(__name__)
 app.config['SECRET_KEY'] = 'secret'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/student/WebApp/db.sqlite'
 db = SQLAlchemy(app)
+Bootstrap(app)
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)

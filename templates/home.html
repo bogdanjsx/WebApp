@@ -1,11 +1,16 @@
 <!DOCTYPE html>
+
+
+
 <html>
+{% extends "bootstrap/base.html" %}
+{% block title %}Produse{% endblock %}
+{% block content %}
     <head>
         <title>Web Shop</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
 
-<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     
 </head>
     <body align="center">
@@ -29,6 +34,6 @@ Price: <input name="price" size="4">
 {% endfor %}
 
 </table>
-
+{% endblock %}
     </body>
 </html>

@@ -1,11 +1,15 @@
 <!DOCTYPE html>
+
+{% extends "bootstrap/base.html" %}
+{% block title %}Produse{% endblock %}
+{% block content %}
+
 <html>
     <head>
         <title>Web Shop</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
 
-<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
     
 </head>
     <body align="center">
@@ -24,11 +28,11 @@ Price: <input name="price" size="4">
 <p>
 {{ product.name }} {{ product.price }} {{ product.description }}
 <a href="/edit/{{ product.id }}">edit</a>
-<a href="/delete/{{ product.id }}">delete</a.
+<a href="/delete/{{ product.id }}">delete</a>
 </p>
 {% endfor %}
 
 </table>
-
+{% endblock %}
     </body>
 </html>
